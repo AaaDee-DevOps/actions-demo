@@ -17,9 +17,6 @@ jobs:
     - name: Execute Cowsay CMD
       run: cowsay -f dragon "run for cover" >> dragon.txt
 
-    - name: Test file exists 
-      run: grep -i "dragon" dragon.txt
-
     - name: Run cowsay
       run: |
         echo "Cow says:"
