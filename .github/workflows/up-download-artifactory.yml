@@ -1,4 +1,4 @@
-name: download/upload artifactory
+name: download-upload artifactory
 
 on:
  push 
@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Install cowsay program
-      run: sudo apt-get insta;; cowsay -y 
+      run: sudo apt-get install cowsay -y 
 
     - name: Execute cowsay CMD
       run: cowsay -f dragon "run for cover, i am DRAGON..RAWR" >> dragon.txt
