@@ -1,19 +1,20 @@
-name: test matrix function
+name: Test Matrix Function
 
 on:
-    push:
-    workflow_dispatch:
+  push:
+  workflow_dispatch:
 
 jobs:
-    deploy:
-        strategy:
-            matrix:
-                os: [ ubuntu-latest, ubuntu.23, windows-latest ]
-                images: [ hello-world, alpine]
-        runs-on: ${{ matrix.os}}
-        steps:
-        - name: Echo Docker Details
-          run: docker info 
+  deploy:
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, ubuntu-22.04, ubuntu-latest, windows-2019, windows-latest, macos-12, macos-13, macos-latest]
+        images: [hello-world, alpine]
+    runs-on: ${{ matrix.os }}
+    name: Run on ${{ matrix.os }} with image ${{ matrix.images }}
+    steps:
+      - name: Echo Docker Details
+        run: docker info
 
-        - name: run image on ${{ matrix.os }}
-          run: docker run ${{ matrix.images }}
+      - name: Run image ${{ matrix.images }} on ${{ matrix.os }}
+        run: docker run ${{ matrix.images }}
